@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UsuarioRepository::class)
@@ -25,6 +26,9 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(
+     *     message = "El email '{{ value }}' no es un email valido."
+     * )
      */
     private $email;
 
@@ -40,17 +44,35 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=9)
+     * @ORM\Column(type="string", length=9, unique=true)
+     * @Assert\Length(
+     *      min = 9,
+     *      max = 9,
+     *      minMessage = "El dni debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "El dni no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $dni;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 30,
+     *      minMessage = "El nombre debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "El nombre no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $nombre;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 40,
+     *      minMessage = "El apellido debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "El apellido no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $apellidos;
 

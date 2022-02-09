@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\MarcaRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,6 +22,13 @@ class Marca
 
     /**
      * @ORM\Column(type="string", length=40)
+     * 
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 20,
+     *      minMessage = "El nombre debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "El nombre no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $nombre;
 
