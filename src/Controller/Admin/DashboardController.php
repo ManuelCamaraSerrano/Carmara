@@ -7,6 +7,8 @@ use App\Entity\Oficina;
 use App\Entity\Provincia;
 use App\Entity\Marca;
 use App\Entity\Coche;
+use App\Entity\Fotos;
+use App\Entity\Reserva;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -42,6 +44,8 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Provincia', 'fa fa-globe-europe', Provincia::class),
             MenuItem::linkToCrud('Marca', 'fab fa-medium', Marca::class),
             MenuItem::linkToCrud('Coche', 'fas fa-car', Coche::class),
+            MenuItem::linkToCrud('Fotos', 'fa fa-picture-o', Fotos::class),
+            MenuItem::linkToCrud('Reserva', 'fas fa-bookmark', Reserva::class),
         ];
     }
 

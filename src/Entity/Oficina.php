@@ -35,9 +35,15 @@ class Oficina
      */
     private $coches;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Reserva::class, mappedBy="oficinadevolucion")
+     */
+    private $reservas;
+
     public function __construct()
     {
         $this->coches = new ArrayCollection();
+        $this->reservas = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -93,6 +99,40 @@ class Oficina
             // set the owning side to null (unless already changed)
             if ($coch->getOficina() === $this) {
                 $coch->setOficina(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * @return Collection|Reserva[]
+     */
+    public function getReservas(): Collection
+    {
+        return $this->reservas;
+    }
+
+    public function addReserva(Reserva $reserva): self
+    {
+        if (!$this->reservas->contains($reserva)) {
+            $this->reservas[] = $reserva;
+            $reserva->setOficinadevolucion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReserva(Reserva $reserva): self
+    {
+        if ($this->reservas->removeElement($reserva)) {
+            // set the owning side to null (unless already changed)
+            if ($reserva->getOficinadevolucion() === $this) {
+                $reserva->setOficinadevolucion(null);
             }
         }
 

@@ -77,9 +77,15 @@ class Coche
      */
     private $fotos;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Reserva::class, mappedBy="coche")
+     */
+    private $reservas;
+
     public function __construct()
     {
         $this->fotos = new ArrayCollection();
+        $this->reservas = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -231,6 +237,40 @@ class Coche
             // set the owning side to null (unless already changed)
             if ($foto->getCoche() === $this) {
                 $foto->setCoche(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return $this->matricula." ".$this->marca." ".$this->modelo;
+    }
+
+    /**
+     * @return Collection|Reserva[]
+     */
+    public function getReservas(): Collection
+    {
+        return $this->reservas;
+    }
+
+    public function addReserva(Reserva $reserva): self
+    {
+        if (!$this->reservas->contains($reserva)) {
+            $this->reservas[] = $reserva;
+            $reserva->setCoche($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReserva(Reserva $reserva): self
+    {
+        if ($this->reservas->removeElement($reserva)) {
+            // set the owning side to null (unless already changed)
+            if ($reserva->getCoche() === $this) {
+                $reserva->setCoche(null);
             }
         }
 
