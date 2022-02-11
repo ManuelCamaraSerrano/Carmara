@@ -39,9 +39,7 @@ class RegistrationController extends AbstractController
             $user->setApellidos(
                 $form->get('apellidos')->getData()
             );
-            $user->setFechanac(
-                $form->get('fechanac')->getData()
-            );
+
             $user->setFoto(
                 $form->get('foto')->getData()
             );

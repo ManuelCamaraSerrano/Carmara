@@ -25,10 +25,8 @@ class UsuarioCrudController extends AbstractCrudController
         return [
             FieldTextField::new('Dni'),
             EmailField::new('email'),
-            FieldTextField::new('Password'),
             FieldTextField::new('Nombre'),
             FieldTextField::new('Apellidos'),
-            DateField::new('Fechanac'),
             FieldTextField::new('Telefono'),
             ImageField::new('foto')->setBasePath('img')->setUploadDir("img"),
             

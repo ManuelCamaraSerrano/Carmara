@@ -169,7 +169,6 @@ class ResetPasswordController extends AbstractController
                 'resetToken' => $resetToken,
             ])
         ;
-        dd($email);
         $mailer->send($email);
 
         // Store the token object in session for retrieval in check-email route.

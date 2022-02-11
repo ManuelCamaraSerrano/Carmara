@@ -46,6 +46,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Coche', 'fas fa-car', Coche::class),
             MenuItem::linkToCrud('Fotos', 'fa fa-picture-o', Fotos::class),
             MenuItem::linkToCrud('Reserva', 'fas fa-bookmark', Reserva::class),
+            MenuItem::linkToRoute('Alta Masiva', 'fa ...', 'Alta Masiva', ['Alta Masiva' => '/login']),
         ];
     }
 

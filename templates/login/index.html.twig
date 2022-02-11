@@ -8,16 +8,25 @@
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>
-
-        {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"/> #}
-
-        <button type="submit">login</button>
-    </form>
+    <div class="container">
+        <div class="login">
+            <form action="{{ path('login') }}" method="post" class=" p-4 contact-form">
+            <h1 class="navbar-brand">Login</h1>
+            <a class="navbar-brand nombre" href="index.html">Cár<span>mara</span></a>
+            <div class="form-group">
+                <label for="username">Email:</label>
+                <input type="text" class="form-control col-md-10" id="username" name="_username" value="{{ last_username }}"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="_password" class="form-control col-md-10"/>
+            </div>
+                {# If you want to control the URL the user is redirected to on success
+                <input type="hidden" name="_target_path" value="/account"/> #}
+                 <a class="enlace" href="/reset-password">¿Has olvidado la contraseña?</a>
+                 <a class="enlace" href="/register">¿No estas registrado? Registrate</a>
+                <button type="submit" class="btn btn-primary py-3 px-5">login</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}

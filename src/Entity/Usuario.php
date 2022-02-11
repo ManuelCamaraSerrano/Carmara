@@ -44,7 +44,7 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=9, unique=true)
+     * @ORM\Column(type="string", length=9, unique=true, nullable=true)
      * @Assert\Length(
      *      min = 9,
      *      max = 9,
@@ -75,11 +75,6 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
      * )
      */
     private $apellidos;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $fechanac;
 
     /**
      * @ORM\Column(type="string", length=150)
@@ -222,18 +217,6 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     public function setApellidos(string $apellidos): self
     {
         $this->apellidos = $apellidos;
-
-        return $this;
-    }
-
-    public function getFechanac(): ?\DateTimeInterface
-    {
-        return $this->fechanac;
-    }
-
-    public function setFechanac(\DateTimeInterface $fechanac): self
-    {
-        $this->fechanac = $fechanac;
 
         return $this;
     }
