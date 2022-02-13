@@ -2315,6 +2315,7 @@ textarea.form-control {
 // Mis estilos
 // Estilos para el formulario de login y registro
 .login,.register form.contact-form{
+	margin-bottom: 5%;
 	box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%); // Introducimos un efecto de sombra
 	border-radius: 10px 10px 10px 10px;
 	background-color: white;
@@ -2379,6 +2380,11 @@ table {
 		
 		background-color: $secondary;
 	}
+}
+
+.fotousu{
+	border-radius: 60%;
+	width: 80px;
 }
 
 

@@ -12874,6 +12874,7 @@ textarea.form-control {
   }
 }
 .login, .register form.contact-form {
+  margin-bottom: 5%;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
   border-radius: 10px 10px 10px 10px;
@@ -12896,6 +12897,11 @@ textarea.form-control {
   margin-left: 3%;
 }
 .login input[type=file], .register form.contact-form input[type=file] {
+  margin-bottom: 2%;
+}
+
+small {
+  margin-top: 1%;
   margin-bottom: 2%;
 }
 
@@ -12929,4 +12935,9 @@ table tbody tr {
 }
 table tbody tr:hover {
   background-color: #72dcfa;
+}
+
+.fotousu {
+  border-radius: 60%;
+  width: 80px;
 }/*# sourceMappingURL=style.css.map */

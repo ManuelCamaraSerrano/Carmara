@@ -1,0 +1,162 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+        {% include 'nav.html.twig'  %}
+    {% endblock %}
+
+{% block body %}
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{ asset('estilos/images/bg_3.jpg') }});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Inicio <i class="ion-ios-arrow-forward"></i></a></span> <span>Acerca de <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Acerca de</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-about">
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{ asset('estilos/images/about.jpg') }});">
+					</div>
+					<div class="col-md-6 wrap-about ftco-animate">
+	          <div class="heading-section heading-section-white pl-md-5">
+	          	<span class="subheading">Acerca de</span>
+	            <h2 class="mb-4">Bienvenido a Cármara</h2>
+
+	            <p>Cármara es una compañía de alquiler de coches fundada en 2002 en Jaén. Las oficinas centrales de la compañía holding, Cármara Group, están en el centro de Jaén, España.
+
+                Cármara es una de las compañías líderes de la industria del transporte en Europa y está presente en más de 140 países.               
+              ​</p>
+	            <p> En 2014 y por tercer año consecutivo, Cármara recibió el premio World Travel Award a la ‘Compañía Líder Mundial en Transporte Ecológico’. Cármara ha sido además nominada como ‘Compañía Líder en Alquiler de Coches’ en Europa, África, Oceanía y Oriente Medio.</p>
+	          </div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ftco-section ftco-intro" style="background-image: url({{ asset('estilos/images/bg_3.jpg') }});">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row justify-content-end">
+					<div class="col-md-6 heading-section heading-section-white ftco-animate">
+            <h2 class="mb-3">No pierdas el tiempo y alquila tu coche con nosotros.</h2>
+          </div>
+				</div>
+			</div>
+		</section>
+
+
+    <section class="ftco-section testimony-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2 class="mb-3">Clientes satisfechos</h2>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ftco-owl">
+              <div class="item">
+                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                  <div class="user-img mb-2" style="background-image: url(images/cliente2.jpg)">
+                  </div>
+                  <div class="text pt-4">
+                    <p class="mb-4">Toda la experiencia fue fantástica. Especial mención al trato del personal de la oficina.</p>
+                    <p class="name">Jose Antonio Cano Torres</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                  <div class="user-img mb-2" style="background-image: url(images/cliente1.jpg)">
+                  </div>
+                  <div class="text pt-4">
+                    <p class="mb-4">Muy buena atención por parte de las Chicas que atienden. Necesitaba un coche y me lo solucionaron muy rápido.</p>
+                    <p class="name">Alejandro Contreras Sicília</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                  <div class="user-img mb-2" style="background-image: url(images/cliente3.jpg)">
+                  </div>
+                  <div class="text pt-4">
+                    <p class="mb-4">Necesitaba un coche con urgencia y me lo solucionaron a pesar de la hora que era, gracias</p>
+                    <p class="name">Javier Ruiz Vera</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                  <div class="user-img mb-2" style="background-image: url(images/cliente4.jpg)">
+                  </div>
+                  <div class="text pt-4">
+                    <p class="mb-4">Viajar por tu cuenta por un lugar desconocido nunca fue tan fácil como alquilando un coche barato</p>
+                    <p class="name">Jose Antonio Balboa Lechuga</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                  <div class="user-img mb-2" style="background-image: url(images/cliente5.jpg)">
+                  </div>
+                  <div class="text pt-4">
+                    <p class="mb-4">Buena atención y amabilidad, y el vehículo de sustitución nuevo, tan solo 2000km de momento buena experiencia</p>
+                    <p class="name">Manuel Jesus Barranco Lopez</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-counter ftco-section img bg-light" id="section-counter">
+			<div class="overlay"></div>
+    	<div class="container">
+    		<div class="row">
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" data-number="20">0</strong>
+                <span>Años de <br>experiencia</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" data-number="600">0</strong>
+                <span>Nº <br>Vehiculos</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" data-number="800">0</strong>
+                <span>Clientes <br>Satisfechos</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text d-flex align-items-center">
+                <strong class="number" data-number="67">0</strong>
+                <span>Total <br>Branches</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+     
+  {% endblock %}
+  {% block footer %}
+        {% include 'footer.html.twig' %}
+    {% endblock %}

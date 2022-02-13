@@ -28,7 +28,7 @@ class UsuarioCrudController extends AbstractCrudController
             FieldTextField::new('Nombre'),
             FieldTextField::new('Apellidos'),
             FieldTextField::new('Telefono'),
-            ImageField::new('foto')->setBasePath('img')->setUploadDir("img"),
+            ImageField::new('foto')->setBasePath('public/estilos/images')->setUploadDir("public/estilos/images"),
             
         ];
     }
