@@ -11,20 +11,25 @@
         });
     });
 </script>
-    <div class="container">
+    <div class="container col-md-6">
         <div class="register">
             {{ form_start(registrationForm, {'attr':{'class':'p-5 contact-form'}}) }}
             <h1 class="navbar-brand">Registro</h1>
-                {{ form_row(registrationForm.dni, {'attr':{'class':'form-control'}}) }}
-                {{ form_row(registrationForm.email, {'attr':{'class':'form-control'}}) }}
+            <div class="row">
+                {{ form_row(registrationForm.dni, {'attr':{'class':'col-md-12 form-control'}}) }}
+                {{ form_row(registrationForm.email, {'attr':{'class':'col-md-12 form-control'}}) }}
+            </div>
+            <div class="row">
                 {{ form_row(registrationForm.plainPassword,{'attr':{'class':'form-control'}}, {
                     label: 'Contraseña'
                 }) }}
                 {{ form_row(registrationForm.nombre, {'attr':{'class':'form-control'}}) }}
+            </div>
+            <div class="row">
                 {{ form_row(registrationForm.apellidos, {'attr':{'class':'form-control'}}) }}
                 {{ form_row(registrationForm.telefono, {'attr':{'class':'form-control'}}) }}
                 {{ form_row(registrationForm.foto, {'attr':{'class':'form-control'}})}}
-
+            </div>
                 <button type="submit" class="btn btn-primary py-3 px-5">Registrarse</button>
             {{ form_end(registrationForm) }}
         </div>

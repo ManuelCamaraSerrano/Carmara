@@ -434,7 +434,7 @@ h1, h2, h3, h4, h5,
 		font-weight: 600;
 	}
 	p{
-		color: rgba(255,255,255,.8);
+		color: white;
 	}
 	.form-group{
 		position: relative;
@@ -639,7 +639,7 @@ h1, h2, h3, h4, h5,
 	&.btn-secondary {
 		background: $secondary !important;
 		border: 1px solid $secondary !important;
-		color: $white !important;
+		color: black !important;
 		&:hover {
 			border: 1px solid $secondary;
 			background: transparent;
@@ -737,7 +737,7 @@ h1, h2, h3, h4, h5,
 		}
 		span.cat{
 			font-weight: 400;
-			color: rgba(0,0,0,.2);
+			color: black;
 			display: block;
 			margin-bottom: 0;
 		}
@@ -763,7 +763,7 @@ h1, h2, h3, h4, h5,
 			.text{
 				h3{
 					font-size: 14px !important;
-					color: rgba(0,0,0,.4);
+					color: black;
 					span{
 						display: block;
 						color: $black;
@@ -844,8 +844,8 @@ h1, h2, h3, h4, h5,
 		width: 100%;
 		margin-bottom: 30px;
 		.user-img{
-			width: 80px;
-			height: 80px;
+			width: 100px;
+			height: 100px;
 			@include border-radius(50%);
 		}
 		.desc{
@@ -1520,14 +1520,17 @@ textarea.form-control {
 	}
 	&.heading-section-white{
 		.subheading{
-			color: rgba(255,255,255,.9);
+			color: black;
 		}
 		h2{
 			font-size: 40px;
-			color: $white;
+			color: black;
+		}
+		h3{
+			color: white;
 		}
 		p{
-			color: rgba(255,255,255,.9);
+			color: black;
 		}
 	}
 }
@@ -2385,6 +2388,10 @@ table {
 .fotousu{
 	border-radius: 60%;
 	width: 80px;
+}
+
+section h2{
+	color: black;
 }
 
 

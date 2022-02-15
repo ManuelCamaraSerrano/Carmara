@@ -11110,7 +11110,7 @@ h1, h2, h3, h4, h5,
   font-weight: 600;
 }
 .request-form p {
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
 }
 .request-form .form-group {
   position: relative;
@@ -11316,7 +11316,7 @@ h1, h2, h3, h4, h5,
 .btn.btn-secondary {
   background: #72dcfa !important;
   border: 1px solid #72dcfa !important;
-  color: #fff !important;
+  color: black !important;
 }
 .btn.btn-secondary:hover {
   border: 1px solid #72dcfa;
@@ -11412,7 +11412,7 @@ h1, h2, h3, h4, h5,
 }
 .car-wrap .text span.cat {
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.2);
+  color: black;
   display: block;
   margin-bottom: 0;
 }
@@ -11428,7 +11428,7 @@ h1, h2, h3, h4, h5,
 }
 .ftco-car-details .services .media-body .text h3 {
   font-size: 14px !important;
-  color: rgba(0, 0, 0, 0.4);
+  color: black;
 }
 .ftco-car-details .services .media-body .text h3 span {
   display: block;
@@ -11500,8 +11500,8 @@ h1, h2, h3, h4, h5,
   margin-bottom: 30px;
 }
 .pills .review .user-img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 .pills .review .desc {
@@ -12121,14 +12121,17 @@ textarea.form-control {
   }
 }
 .heading-section.heading-section-white .subheading {
-  color: rgba(255, 255, 255, 0.9);
+  color: black;
 }
 .heading-section.heading-section-white h2 {
   font-size: 40px;
-  color: #fff;
+  color: black;
+}
+.heading-section.heading-section-white h3 {
+  color: white;
 }
 .heading-section.heading-section-white p {
-  color: rgba(255, 255, 255, 0.9);
+  color: black;
 }
 
 .img,
@@ -12940,4 +12943,8 @@ table tbody tr:hover {
 .fotousu {
   border-radius: 60%;
   width: 80px;
+}
+
+section h2 {
+  color: black;
 }/*# sourceMappingURL=style.css.map */

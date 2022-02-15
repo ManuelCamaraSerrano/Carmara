@@ -29,7 +29,7 @@ class AltaMasivaController extends AbstractController
      */
     public function register(Request $request,EntityManagerInterface $entityManager, MailerInterface $mailer,ResetPasswordHelperInterface $resetPasswordHelper): Response
     {
-        //$gmail = new ResetPasswordController($resetPasswordHelper,$entityManager);
+        
         $user = new Usuario();
         $form = $this->createForm(AltaMasivaFormType::class, $user);
         $form->handleRequest($request);
@@ -51,9 +51,12 @@ class AltaMasivaController extends AbstractController
 
                 $user->setRoles(['ROLE_USER']);
                 $entityManager->persist($user);
-                //$gmail->processSendingPasswordResetEmail($cadenadividida[$i][0],$mailer);
+                $entityManager->flush();
+                $gmail = new ResetPasswordController($resetPasswordHelper,$entityManager);
+                $gmail->processSendingPasswordResetEmail($cadenadividida[$i][0],$mailer);
+                
             }
-            $entityManager->flush();
+
             // do anything else you need here, like send an email
 
             return $this->redirectToRoute('admin');
@@ -63,5 +66,8 @@ class AltaMasivaController extends AbstractController
             'altamasivaForm' => $form->createView(),
         ]);
     }
+
+
+   
     
 }

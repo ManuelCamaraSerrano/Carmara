@@ -26,8 +26,8 @@ class ResetPasswordController extends AbstractController
 {
     use ResetPasswordControllerTrait;
 
-    private $resetPasswordHelper;
-    private $entityManager;
+    public $resetPasswordHelper;
+    public $entityManager;
 
     public function __construct(ResetPasswordHelperInterface $resetPasswordHelper, EntityManagerInterface $entityManager)
     {
@@ -126,7 +126,7 @@ class ResetPasswordController extends AbstractController
             // The session is cleaned up after the password has been changed.
             $this->cleanSessionAfterReset();
 
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('login');
         }
 
         return $this->render('reset_password/reset.html.twig', [
@@ -134,6 +134,11 @@ class ResetPasswordController extends AbstractController
         ]);
     }
 
+    /**
+     * Confirmation page after a user has requested a password reset.
+     *
+     * @Route("/enviarEmail", name="enviarEmail")
+     */
     public function processSendingPasswordResetEmail(string $emailFormData, MailerInterface $mailer): RedirectResponse
     {
         $user = $this->entityManager->getRepository(Usuario::class)->findOneBy([

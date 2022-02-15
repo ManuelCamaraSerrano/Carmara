@@ -47,4 +47,25 @@ class ReservaRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @return Reserva[]
+     */
+    public function reservasQueCoinciden(int $f1, int $f2): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            "SELECT r
+            FROM App\Entity\Reserva r
+            WHERE (:f1 <= fechaini and :f2>=fechafin) or 
+(:f1<=fechaini and :f2>=fechaini and :f2<=fechafin) or 
+(:f1>=fechaini and :f1<=fechafin and :f2>=fechafin)"
+        )->setParameter('f1', $f1)
+        ->setParameter('f2', $f2);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
+    
 }

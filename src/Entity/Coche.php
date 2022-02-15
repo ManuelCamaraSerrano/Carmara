@@ -11,7 +11,7 @@ use App\Entity\Oficina;
 /**
  * @ORM\Entity(repositoryClass=CocheRepository::class)
  */
-class Coche
+class Coche 
 {
     /**
      * @ORM\Id
