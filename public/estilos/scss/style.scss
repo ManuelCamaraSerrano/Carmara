@@ -2394,4 +2394,47 @@ section h2{
 	color: black;
 }
 
+.coche{
+	width: 80%;
+	box-shadow: 0px 12px 32px rgba(0,0,0,0.24);
+	border-radius: 10px 10px 10px 10px;
+	margin-left: 5%;
+	margin-bottom: 5%;
+	.foto img{
+		float: left;
+		width: 100%;
+		padding: 2%;
+	}
+	h1{
+		float: left;
+	}
+	div{
+		color: black;
+		font-size: 105%;
+		a{
+			font-size: 150%;
+			font-weight: bold;
+			padding: 6px;
+			background-color: $primary;
+			color: white;
+			text-decoration: none;
+			border-radius: 5px 5px 5px 5px;
+			margin-bottom: 2%;
+		}
+		label{
+			color: $primary;
+			margin-right: 2%;
+		}
+	}
+	.precio{
+		color: red;
+		font-weight: bold;
+	}
+}
 
+#ofidevo,#ofireco{
+	option{
+		font-size: 160%;
+		color: black;
+	}
+}

@@ -20,4 +20,12 @@ class ReservaController extends AbstractController
           return $this->render('reserva.html.twig');
       }
 
+      /**
+     * @Route("/filtros", name="filtros")
+     */
+    public function index1(): Response
+    {
+        return $this->render('filtros.html.twig');
+    }
+
 }

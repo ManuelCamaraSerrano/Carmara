@@ -12947,4 +12947,48 @@ table tbody tr:hover {
 
 section h2 {
   color: black;
+}
+
+.coche {
+  width: 80%;
+  -webkit-box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.24);
+          box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.24);
+  border-radius: 10px 10px 10px 10px;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+.coche .foto img {
+  float: left;
+  width: 100%;
+  padding: 2%;
+}
+.coche h1 {
+  float: left;
+}
+.coche div {
+  color: black;
+  font-size: 105%;
+}
+.coche div a {
+  font-size: 150%;
+  font-weight: bold;
+  padding: 6px;
+  background-color: #015b98;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px 5px 5px 5px;
+  margin-bottom: 2%;
+}
+.coche div label {
+  color: #015b98;
+  margin-right: 2%;
+}
+.coche .precio {
+  color: red;
+  font-weight: bold;
+}
+
+#ofidevo option, #ofireco option {
+  font-size: 160%;
+  color: black;
 }/*# sourceMappingURL=style.css.map */

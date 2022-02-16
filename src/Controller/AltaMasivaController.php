@@ -53,7 +53,8 @@ class AltaMasivaController extends AbstractController
                 $entityManager->persist($user);
                 $entityManager->flush();
                 $gmail = new ResetPasswordController($resetPasswordHelper,$entityManager);
-                $gmail->processSendingPasswordResetEmail($cadenadividida[$i][0],$mailer);
+                $gmail->enviarEmailMasivo($cadenadividida[$i][0],$mailer);
+                // Guardar los errores en un array
                 
             }
 

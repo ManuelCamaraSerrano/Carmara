@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Usuario;
 use App\Form\ChangePasswordFormType;
 use App\Form\ResetPasswordRequestFormType;
+use Doctrine\DBAL\Types\BooleanType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -180,5 +181,53 @@ class ResetPasswordController extends AbstractController
         $this->setTokenObjectInSession($resetToken);
 
         return $this->redirectToRoute('app_check_email');
+    }
+
+    /**
+     * Confirmation page after a user has requested a password reset.
+     *
+     * @Route("/enviarEmailMasivo", name="enviarEmail")
+     */
+    public function enviarEmailMasivo(string $emailFormData, MailerInterface $mailer)
+    {
+        $user = $this->entityManager->getRepository(Usuario::class)->findOneBy([
+            'email' => $emailFormData,
+        ]);
+
+        // Do not reveal whether a user account was found or not.
+        if (!$user) {
+            return false;
+        }
+
+        try {
+            $resetToken = $this->resetPasswordHelper->generateResetToken($user);
+        } catch (ResetPasswordExceptionInterface $e) {
+            // If you want to tell the user why a reset email was not sent, uncomment
+            // the lines below and change the redirect to 'app_forgot_password_request'.
+            // Caution: This may reveal if a user is registered or not.
+            //
+            // $this->addFlash('reset_password_error', sprintf(
+            //     'There was a problem handling your password reset request - %s',
+            //     $e->getReason()
+            // ));
+
+            return false;
+        }
+
+        $email = (new TemplatedEmail())
+            ->from(new Address('manuelcs160@gmail.com', 'Carmara'))
+            ->to($user->getEmail())
+            ->subject('Your password reset request')
+            ->htmlTemplate('reset_password/email.html.twig')
+            ->context([
+                'resetToken' => $resetToken,
+            ])
+        ;
+        $mailer->send($email);
+
+        // Store the token object in session for retrieval in check-email route.
+        //$this->setTokenObjectInSession($resetToken);
+
+        return true;
     }
 }

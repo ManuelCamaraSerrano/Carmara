@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Usuario;
 use App\Entity\Coche;
+use App\Entity\Marca;
+use App\Entity\Oficina;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,6 +48,54 @@ class JsonController extends AbstractController
 
         $serializer = new Serializer([$normalizer], [$encoder]);
         $jsonContent = $serializer->serialize($coches, 'json');
+        return new Response($jsonContent);
+
+        // or render a template
+        // in the template, print things with {{ product.name }}
+        // return $this->render('product/show.html.twig', ['product' => $product]);
+    }
+
+    /**
+     * @Route("/marcas", name="marcas")
+     */
+    public function marcas(ManagerRegistry $doctrine): Response
+    {
+        $marcas = $doctrine->getRepository(Marca::class)->findAll();
+        
+        $encoder = new JsonEncoder();
+        $defaultContext = [
+            AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object, $format, $context) {
+                return $object->getId();
+            },
+        ];
+        $normalizer = new ObjectNormalizer(null, null, null, null, null, null, $defaultContext);
+
+        $serializer = new Serializer([$normalizer], [$encoder]);
+        $jsonContent = $serializer->serialize($marcas, 'json');
+        return new Response($jsonContent);
+
+        // or render a template
+        // in the template, print things with {{ product.name }}
+        // return $this->render('product/show.html.twig', ['product' => $product]);
+    }
+
+    /**
+     * @Route("/oficinas", name="marcas")
+     */
+    public function oficinas(ManagerRegistry $doctrine): Response
+    {
+        $oficinas = $doctrine->getRepository(Oficina::class)->findAll();
+        
+        $encoder = new JsonEncoder();
+        $defaultContext = [
+            AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object, $format, $context) {
+                return $object->getId();
+            },
+        ];
+        $normalizer = new ObjectNormalizer(null, null, null, null, null, null, $defaultContext);
+
+        $serializer = new Serializer([$normalizer], [$encoder]);
+        $jsonContent = $serializer->serialize($oficinas, 'json');
         return new Response($jsonContent);
 
         // or render a template
