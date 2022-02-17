@@ -80,7 +80,7 @@ class JsonController extends AbstractController
     }
 
     /**
-     * @Route("/oficinas", name="marcas")
+     * @Route("/oficinas", name="oficinas")
      */
     public function oficinas(ManagerRegistry $doctrine): Response
     {

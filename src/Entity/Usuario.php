@@ -39,7 +39,7 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @var string The hashed password
-     * @ORM\Column(type="string",length=600)
+     * @ORM\Column(type="string",length=600, nullable=true)
      */
     private $password;
 

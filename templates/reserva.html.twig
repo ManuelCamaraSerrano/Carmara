@@ -4,34 +4,55 @@
         {% include 'nav.html.twig' %}
     {% endblock %}
 
-{% block body %}	
-     <div class="container">
+{% block body %}
+    <div class="contenedorModal"></div>
+     <div class="container filtros">
      <div class="row">
-    <select name="marcas" id="marca" class="form-control col-3">
-        <option value=""></option>
-    </select>
-    <select name="tipo" id="tipo" class="form-control col-3">
-        <option value=""></option>
-        <option value="4X4">4X4</option>
-        <option value="Berlina">Berlina</option>
-        <option value="Deportivo">Deportivo</option>
-        <option value="Familiar">Familiar</option>
-    </select>
-    <select name="cambio" id="cambio" class="form-control col-3">
-        <option value=""></option>
-        <option value="Manual">Manual</option>
-        <option value="Automatico">Automatico</option>
-    </select>
-
-    <select name="precio" id="precio" class="form-control col-3">
-        <option value="50-100">50€-100€</option>
-        <option value="100-150">100€-150€</option>
-        <option value="150-200">150€-200€</option>
-    </select>
+        <div class="col-3">
+            <div class="row">
+                <label for="" class="col-12">Marca:</label>
+                <select name="marcas" id="marca" class="form-control col-12">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+         <div class="col-3">
+            <div class="row">
+                <label for=""  class="col-12">Tipo:</label>
+                <select name="tipo" id="tipo" class="form-control col-12">
+                    <option value=""></option>
+                    <option value="4X4">4X4</option>
+                    <option value="Berlina">Berlina</option>
+                    <option value="Deportivo">Deportivo</option>
+                    <option value="Familiar">Familiar</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <label for=""  class="col-12">Cambio:</label>
+                <select name="cambio" id="cambio" class="form-control col-12">
+                    <option value=""></option>
+                    <option value="Manual">Manual</option>
+                    <option value="Automatico">Automatico</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                 <label for=""  class="col-12">Precio:</label>
+                <select name="precio" id="precio" class="form-control col-12">
+                    <option value="50-100">50€-100€</option>
+                    <option value="100-150">100€-150€</option>
+                    <option value="150-200">150€-200€</option>
+                </select>
+            </div>
+    </div>
     </div>
 </div>
   {% endblock %}
   {% block footer %}
         {% include 'footer.html.twig' %}
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
         <script src="{{ asset('estilos/js/reserva.js') }}"></script>
   {% endblock %}
