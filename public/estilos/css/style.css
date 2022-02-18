@@ -12957,8 +12957,12 @@ section h2 {
   border-radius: 10px 10px 10px 10px;
   margin-bottom: 5%;
 }
+.coche .realizares {
+  margin-left: 2%;
+}
 .coche .foto img {
-  float: left;
+  margin-top: 3%;
+  margin-bottom: 5%;
   width: 100%;
 }
 .coche h1 {
@@ -12966,10 +12970,10 @@ section h2 {
 }
 .coche div {
   color: black;
-  font-size: 105%;
+  font-size: 103%;
 }
 .coche div a {
-  font-size: 150%;
+  font-size: 140%;
   font-weight: bold;
   padding: 6px;
   background-color: #015b98;
@@ -13002,6 +13006,7 @@ section h2 {
 }
 
 .ui-dialog {
+  margin: auto;
   background: white;
   z-index: 2000;
 }
@@ -13032,4 +13037,11 @@ section h2 {
 .contenedorModal.active {
   opacity: 0.5;
   z-index: 1500;
+}
+
+.alquiler .foto {
+  margin-top: 4%;
+}
+.alquiler .realizares {
+  margin-top: 5%;
 }/*# sourceMappingURL=style.css.map */

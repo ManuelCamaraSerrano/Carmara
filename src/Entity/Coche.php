@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Oficina;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CocheRepository::class)
@@ -22,6 +23,15 @@ class Coche
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotNull(
+     *      message = "ERROR, Tiene que insertar una matricula"
+     * )
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 12,
+     *      minMessage = "La matricula debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "La matricula no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $matricula;
 
@@ -33,6 +43,15 @@ class Coche
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotNull(
+     *      message = "ERROR, Tiene que insertar un Modelo"
+     * )
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 60,
+     *      minMessage = "El modelo debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "El modelo no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $modelo;
 
@@ -44,6 +63,15 @@ class Coche
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotNull(
+     *      message = "ERROR, Tiene que insertar el número de puertas"
+     * )
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 1,
+     *      minMessage = "El número de puertas debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "El número de puertas no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $npuertas;
 
@@ -54,11 +82,23 @@ class Coche
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 3,
+     *      minMessage = "Los cv debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "Los cv no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $cv;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 4,
+     *      minMessage = "El precio debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "El precio no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $precio;
 
@@ -69,6 +109,12 @@ class Coche
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 40,
+     *      minMessage = "El color debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "El color no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $color;
 

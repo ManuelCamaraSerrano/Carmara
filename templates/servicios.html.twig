@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+        {% include 'nav.html.twig'  %}
+    {% endblock %}
+
+{% block body %}
+    <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item active"><a href="services.html" class="nav-link">Services</a></li>
+	          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+	          <li class="nav-item"><a href="car.html" class="nav-link">Cars</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ asset('estilos/images/servicios.jpg') }}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Inicio <i class="ion-ios-arrow-forward"></i></a></span> <span>Servicios <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Servicios</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+          	<span class="subheading">Servicios</span>
+            <h2 class="mb-3">Otros Servicios</h2>
+          </div>
+        </div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Asesoramiento en alquiler de coches</h3>
+                <p>Pídale a un miembro del personal de Cármara que le explique los controles y las características del automóvil.</p>
+              </div>
+            </div>
+					</div>
+					<div class="col-md-3">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Recogida exprés de vehículo</h3>
+                <p>Completa todos los datos de tu reeserva online y ahorra tiempo en el mostrador para ponerte en camino lo antes posible.</p>
+              </div>
+            </div>
+					</div>
+					<div class="col-md-3">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Entrega a domicilio</h3>
+                <p>Disfruta de la comodidad del servicio de entrega a domicilio. ¡Te llevamos el vehículo que alquiles a la puerta de tu casa u oficina!</p>
+              </div>
+            </div>
+					</div>
+					<div class="col-md-3">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Reembolso del IVA en los viajes al extranjero</h3>
+                <p>Descubre cómo recuperar el IVA en tus gastos de alquiler de vehículos dentro de la Unión Europea.
+</p>
+              </div>
+            </div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="ftco-section ftco-intro" style="background-image: url({{ asset('estilos/images/bg_3.jpg') }});">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row justify-content-end">
+					<div class="col-md-6 heading-section heading-section-white ftco-animate">
+            <h2 class="mb-3">Do You Want To Earn With Us? So Don't Be Late.</h2>
+          </div>
+				</div>
+			</div>
+		</section>
+     
+  {% endblock %}
+  {% block footer %}
+        {% include 'footer.html.twig' %}
+    {% endblock %}

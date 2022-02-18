@@ -6,6 +6,7 @@ use App\Repository\ProvinciaRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProvinciaRepository::class)
@@ -21,6 +22,12 @@ class Provincia
 
     /**
      * @ORM\Column(type="string", length=40)
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 40,
+     *      minMessage = "El nombre debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "El nombre no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $nombre;
 

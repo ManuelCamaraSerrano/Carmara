@@ -39,23 +39,23 @@
 			    				<div class="form-group">
 			    					<label for="" class="label">Lugar de recogida</label>
 			    					<select name="ofireco" id="ofireco" class="form-control col-12">
-        								<option value=""></option>
+        								<option value="vacio"></option>
     								</select>
 			    				</div>
 			    				<div class="form-group">
 			    					<label for="" class="label">Lugar de devolución</label>
 			    					<select name="ofidevo" id="ofidevo" class="form-control col-12">
-        								<option value=""></option>
+        								<option value="vacio"></option>
     								</select>
 			    				</div>
 			    				<div class="d-flex">
 			    					<div class="form-group mr-2">
 			                <label for="" class="label">Fecha de recogida</label>
-			                <input type="text" class="form-control" id="book_pick_date" placeholder="Fecha">
+			                <input type="text" class="form-control" id="fecharecogida" placeholder="Fecha">
 			              </div>
 			              <div class="form-group ml-2">
 			                <label for="" class="label">Fecha de devolución</label>
-			                <input type="text" class="form-control" id="book_off_date" placeholder="Fecha">
+			                <input type="text" class="form-control" id="fechadevolucion" placeholder="Fecha">
 			              </div>
 		              </div>
 		              
@@ -329,6 +329,7 @@
   {% endblock %}
   {% block footer %}
         {% include 'footer.html.twig' %}
+		 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     {% endblock %}
 
 

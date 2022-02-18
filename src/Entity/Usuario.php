@@ -29,6 +29,12 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
      * @Assert\Email(
      *     message = "El email '{{ value }}' no es un email valido."
      * )
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 70,
+     *      minMessage = "El gmail debe tener mínimo {{ limit }} caracteres",
+     *      maxMessage = "El gmail no puede tener más de {{ limit }} caracteres"
+     * )
      */
     private $email;
 
@@ -51,6 +57,9 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
      *      minMessage = "El dni debe tener mínimo {{ limit }} caracteres",
      *      maxMessage = "El dni no puede tener más de {{ limit }} caracteres"
      * )
+     * @Assert\NotNull(
+     *      message = "ERROR, El dni no puede dejarlo vacio"
+     * )
      */
     private $dni;
 
@@ -61,6 +70,9 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
      *      max = 30,
      *      minMessage = "El nombre debe tener mínimo {{ limit }} caracteres",
      *      maxMessage = "El nombre no puede tener más de {{ limit }} caracteres"
+     * )
+     * @Assert\NotNull(
+     *      message = "ERROR, El nombre no puede dejarlo vacio."
      * )
      */
     private $nombre;
@@ -73,6 +85,9 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
      *      minMessage = "El apellido debe tener mínimo {{ limit }} caracteres",
      *      maxMessage = "El apellido no puede tener más de {{ limit }} caracteres"
      * )
+     * @Assert\NotNull(
+     *      message = "ERROR, No puede dejar los apellidos vacio."
+     * )
      */
     private $apellidos;
 
@@ -83,6 +98,9 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotNull(
+     *      message = "ERROR, El telefono no puede dejarlo vacio."
+     * )
      */
     private $telefono;
 

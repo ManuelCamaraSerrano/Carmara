@@ -39,6 +39,7 @@
           if (!($entity instanceof Usuario)) {
               return;
           }
+        
           $this->entityManager->persist($entity);
           $this->entityManager->flush();
           $gmail = new ResetPasswordController($this->resetPasswordHelper,$this->entityManager);
