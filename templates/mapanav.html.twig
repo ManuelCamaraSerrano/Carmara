@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+        {% include 'nav.html.twig'  %}
+    {% endblock %}
+
+{% block body %}
+    <h1 class="titulomapa">Mapa de navegación</h1>
+    <div class="enlacesmapa">
+      <h2>Rol Usuario</h2>
+      <a href="/">Inicio</a>
+      <ul>
+        <li><a href="/acercade">Acerca de</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+        <li><a href="/login">Login</a><ul>
+          <li><a href="/register">Registro</a></li>
+          <li><a href="/reset-password">Cambiar contraseña</a></li>
+        </ul></li>
+        <li><a href="/reserva">Reserva</a></li>
+      </ul>
+    </div>
+    <div class="enlacesmapa">
+      <h2>Rol Admin</h2>
+      <a href="/">Inicio</a>
+      <ul>
+        <li><a href="/acercade">Acerca de</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+        <li><a href="/login">Login</a><ul>
+          <li><a href="/register">Registro</a></li>
+          <li><a href="/reset-password">Cambiar contraseña</a></li>
+        </ul></li>
+        <li><a href="/reserva">Reserva</a></li>
+        <li><a href="/admin">Admin</a><ul>
+        <li><a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUsuarioCrudController&menuIndex=1&submenuIndex=-1">Crear, modificar y borrar Usuarios</a></li>
+        <li><a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5COficinaCrudController&menuIndex=2&submenuIndex=-1">Crear, modificar y borrar Oficinas</a></li>
+        <li><a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CCocheCrudController&menuIndex=5&submenuIndex=-1">Crear, modificar y borrar Coches</a></li>
+        <li><a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CMarcaCrudController&menuIndex=4&submenuIndex=-1">Crear, modificar y borrar Marcas</a></li>
+        <li><a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CReservaCrudController&menuIndex=7&submenuIndex=-1">Crear, modificar y borrar Reservas</a></li>
+        <li><a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CFotosCrudController&menuIndex=6&submenuIndex=-1">Crear, modificar y borrar Fotos</a></li>
+          <li><a href="/masivausu">Alta masiva Usuarios</a></li>
+        </ul></li>
+      </ul>
+    </div>
+     
+  {% endblock %}
+  {% block footer %}
+        {% include 'footer.html.twig' %}
+    {% endblock %}

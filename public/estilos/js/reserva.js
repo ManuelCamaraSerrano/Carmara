@@ -76,12 +76,6 @@ $(document).ready(function(){
     })
 
 
-    $(".cancelar").click(function(ev){
-        ev.preventDefault();
-        $(".contenedorModal").removeClass("active");
-    })
-
-
     // Función que añade el contenido al modal
     function muestraDetalles(detalle,data){
         var modelo=detalle.find("div[id^=detalle]:first");
@@ -120,8 +114,15 @@ $(document).ready(function(){
         coche.find(".preciototal").text(dias*data.precio+"€");
         coche.find(".matricula").text(data.matricula);
         coche.find(".imagen").attr("src","/estilos/images/"+data.fotos[0].foto);
+        var datos = [data.id,fechaini,fechafin,ofireco,ofidevo,dias*data.precio];
+        json = JSON.stringify(datos);
+        coche.find(".reservarya").click(function(ev){
+            ev.preventDefault();
+            $.get("/realizareserva",json);
+        })
+        
 
-            
+        
         return coche;
         
     }

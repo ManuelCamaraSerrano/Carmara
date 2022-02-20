@@ -25,6 +25,11 @@
 			  {% else %}
 	          <li class="nav-item"><a href="/login" class="icon-user nav-link" style='font-size:30px;'></a></li>
 			  {% endif %}
+			  {% if app.user %}
+			  		<li class="nav-item"><a href="/logout" class="icon-exit_to_app nav-link" style='font-size:30px;' ></a></li>
+			  {% else %}
+
+			  {% endif %}	  
 	        </ul>
 	      </div>
 	    </div>

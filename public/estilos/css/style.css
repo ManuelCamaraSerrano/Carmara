@@ -5,6 +5,8 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville&display=swap");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -10750,6 +10752,7 @@ a:hover, a:focus {
 
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
+  font-family: "Libre Baskerville", serif;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.8);
   font-weight: 400;
@@ -10775,6 +10778,7 @@ h1, h2, h3, h4, h5,
   }
 }
 .ftco-navbar-light .navbar-brand {
+  font-family: "Anton", sans-serif;
   color: #fff;
 }
 .ftco-navbar-light .navbar-brand span {
@@ -10965,9 +10969,12 @@ h1, h2, h3, h4, h5,
 }
 
 .navbar-brand {
-  font-weight: 800;
-  font-size: 20px;
+  font-size: 25px;
   text-transform: uppercase;
+}
+
+.titulomapa {
+  margin-top: 8%;
 }
 
 .hero-wrap {
@@ -13044,4 +13051,22 @@ section h2 {
 }
 .alquiler .realizares {
   margin-top: 5%;
+}
+
+.enlacesmapa {
+  margin-left: 5%;
+}
+
+.icono {
+  color: white;
+}
+
+.video {
+  background-color: #015b98;
+  padding: 8%;
+  border-radius: 60%;
+}
+
+iframe {
+  width: 120%;
 }/*# sourceMappingURL=style.css.map */

@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use App\Entity\Reserva;
 use Doctrine\Persistence\ManagerRegistry;
-
+use Symfony\Component\Validator\Constraints\Json;
 
 class ReservaController extends AbstractController
 {
@@ -26,6 +26,14 @@ class ReservaController extends AbstractController
     public function index1(): Response
     {
         return $this->render('filtros.html.twig');
+    }
+
+    /**
+     * @Route("/realizareserva", name="reservaCoche")
+     */
+    public function reservaCoche(Json $datos): Response
+    {
+        dd($datos);
     }
 
 }

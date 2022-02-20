@@ -14,12 +14,12 @@
           	<div class="text w-100 text-center mb-md-5 pb-md-5">
 	            <h1 class="mb-4">Alquila un vehículo rápido y sencillo con Cármara</h1>
 	            <p style="font-size: 18px;">Contamos con todo tipo de vehiculos que se adaptan a las necesidades de nuestros clientes.</p>
-	            <a href="https://vimeo.com/45830194" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
+	            <a href="{{ asset('estilos/images/videoprincipal.mp4') }}" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
 	            	<div class="icon d-flex align-items-center justify-content-center">
 	            		<span class="ion-ios-play"></span>
 	            	</div>
 	            	<div class="heading-title ml-5">
-		            	<span>Easy steps for renting a car</span>
+		            	<span>Vehículos que menos contaminan</span>
 	            	</div>
 	            </a>
             </div>
@@ -122,7 +122,7 @@
 			    						<span class="cat">Ibiza</span>
 			    						<p class="price ml-auto">50€ <span>/día</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block justify-content-center"> <a href="#" class="btn btn-secondary py-6 ml-1">Detalles</a></p>
+		    						<audio src="{{ asset('estilos/images/sonido1.m4a') }}" controls> este es un elemento de audio no soportado por tu navegador, prueba con otro </audio>
 		    					</div>
 		    				</div>
     					</div>
@@ -136,7 +136,7 @@
 			    						<span class="cat">Polo</span>
 			    						<p class="price ml-auto">42€ <span>/día</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block justify-content-center"> <a href="#" class="btn btn-secondary py-6 ml-1">Detalles</a></p>
+		    						<audio src="{{ asset('estilos/images/sonido2.m4a') }}" controls> este es un elemento de audio no soportado por tu navegador, prueba con otro </audio>
 		    					</div>
 		    				</div>
     					</div>
@@ -150,7 +150,7 @@
 			    						<span class="cat">Serie 3</span>
 			    						<p class="price ml-auto">120€ <span>/día</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block justify-content-center"> <a href="#" class="btn btn-secondary py-6 ml-1">Detalles</a></p>
+		    						<audio src="{{ asset('estilos/images/sonido3.m4a') }}" controls> este es un elemento de audio no soportado por tu navegador, prueba con otro </audio>
 		    					</div>
 		    				</div>
     					</div>
@@ -164,7 +164,7 @@
 			    						<span class="cat">A4</span>
 			    						<p class="price ml-auto">72€ <span>/día</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block justify-content-center"> <a href="#" class="btn btn-secondary py-6 ml-1">Detalles</a></p>
+		    						<audio src="{{ asset('estilos/images/sonido1.m4a') }}" controls> este es un elemento de audio no soportado por tu navegador, prueba con otro </audio>
 		    					</div>
 		    				</div>
     					</div>
@@ -184,8 +184,8 @@
 	          	<span class="subheading">Ofertas</span>
 	            <h2 class="mb-4">Ofertas especiales</h2>
 
-	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+	            <p>En Càrmara contamos con un descuento del 20% si realizas tu primer alquiler. ¿A que esperas? Registrate y gana este bono de bienvenida.</p>
+	            <p>Además en Cármara contamos con 3 tipos de bonos que al completarlos conseguiras un descuento, al llegar a los 5 alquileres realizados te regalaremos un descuento de un 15%, al llegar a los 10 alquileres te regalaremos un descuento del 25% y al llegar a 15 alquileres te regalaremos un descuento del 30%. </p>
 	            
 	          </div>
 					</div>
@@ -212,7 +212,11 @@
                   <div><a href="#">2 de Febrero de 2022</a></div>
                 </div>
                 <h3 class="heading mt-2"><a href="https://www.hibridosyelectricos.com/articulo/tecnologia/coches-electricos-alimentados-sol-tmb-grafeno/20220119113538053544.html">Los coches eléctricos solares, más cerca gracias al TMD y al grafeno</a></h3>
-                <p><a href="https://www.hibridosyelectricos.com/articulo/tecnologia/coches-electricos-alimentados-sol-tmb-grafeno/20220119113538053544.html" class="btn btn-primary">Leer más</a></p>
+                <a href="{{ asset('estilos/images/cocheElectrico.mp4') }}" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
+	            	<div class="icon d-flex align-items-center justify-content-center video">
+	            		<span class="ion-ios-play icono"></span>
+	            	</div>
+	            </a>
               </div>
             </div>
           </div>
@@ -225,7 +229,11 @@
                   <div><a href="#">21 de Enero de 2022</a></div>
                 </div>
                 <h3 class="heading mt-2"><a href="https://motor.elpais.com/coches-electricos/bmw-dejara-de-fabricar-el-i3-este-verano/">BMW dejará de fabricar el i3 este verano</a></h3>
-                <p><a href="https://motor.elpais.com/coches-electricos/bmw-dejara-de-fabricar-el-i3-este-verano/" class="btn btn-primary">Leer más</a></p>
+                <a href="{{ asset('estilos/images/bmwi3.mp4') }}" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
+	            	<div class="icon d-flex align-items-center justify-content-center video">
+	            		<span class="ion-ios-play icono"></span>
+	            	</div>
+	            </a>
               </div>
             </div>
           </div>
@@ -237,8 +245,12 @@
               	<div class="meta mb-3">
                   <div><a href="#">12 de Enero de 2022</a></div>
                 </div>
-                <h3 class="heading mt-2"><a href="https://www.hibridosyelectricos.com/articulo/actualidad/coches-electricos-hibridos-enchufables-volvo-mas-50-por-ciento-ventas/20220203100348054108.html">Más del 50 % de las ventas de Volvo han sido de sus coches eléctricos e híbridos enchufables</a></h3>
-                <p><a href="https://www.hibridosyelectricos.com/articulo/actualidad/coches-electricos-hibridos-enchufables-volvo-mas-50-por-ciento-ventas/20220203100348054108.html" class="btn btn-primary">Leer más</a></p>
+                <h3 class="heading mt-2"><a href="https://www.hibridosyelectricos.com/articulo/actualidad/coches-electricos-hibridos-enchufables-volvo-mas-50-por-ciento-ventas/20220203100348054108.html">El 50 % de las ventas de Volvo han sido de sus coches eléctricos</a></h3>
+                <a href="{{ asset('estilos/images/volvo.mp4') }}" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
+	            	<div class="icon d-flex align-items-center justify-content-center video">
+	            		<span class="ion-ios-play icono"></span>
+	            	</div>
+	            </a>
               </div>
             </div>
           </div>
@@ -317,8 +329,8 @@
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18">
               <div class="text d-flex align-items-center">
-                <strong class="number" data-number="67">0</strong>
-                <span>Total <br>Branches</span>
+                <strong class="number" data-number="15">0</strong>
+                <span>Total <br>Oficinas</span>
               </div>
             </div>
           </div>

@@ -8,6 +8,9 @@ $black: #000000;
 
 $primary: #015b98;
 $secondary: #72dcfa;
+// Añadimos estos dos tipos de fuentes 
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Libre+Baskerville&display=swap');
 
 
 
@@ -54,6 +57,7 @@ a {
 }
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
+	font-family: 'Libre Baskerville', serif;
 	line-height: 1.5;
 	color: rgba(0,0,0,.8);
 	font-weight: 400;
@@ -77,6 +81,7 @@ h1, h2, h3, h4, h5,
 	}
 
 	.navbar-brand {
+		font-family: 'Anton', sans-serif;
 		color: $white;
 		span{
 			color: $secondary;
@@ -285,9 +290,12 @@ h1, h2, h3, h4, h5,
 }
 
 .navbar-brand {
-	font-weight: 800;
-	font-size: 20px;
+	font-size: 25px;
 	text-transform: uppercase;
+}
+
+.titulomapa{
+	margin-top: 8%;
 }
 
 
@@ -2498,3 +2506,19 @@ section h2{
 	}
 }
 
+.enlacesmapa{
+	margin-left: 5%;
+}
+
+.icono{
+	color: white;
+}
+.video{
+	background-color: $primary;
+	padding: 8%;
+	border-radius: 60%;
+}
+
+iframe{
+	width: 120%;
+}

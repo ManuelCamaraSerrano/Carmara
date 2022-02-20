@@ -67,5 +67,10 @@ class ReservaRepository extends ServiceEntityRepository
         // returns an array of Product objects
         return $query->getResult();
     }
+
+    public function insertaReserva($reserva){
+        $reserva= new Reserva();
+
+    }
     
 }
