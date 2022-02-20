@@ -2519,6 +2519,85 @@ section h2{
 	border-radius: 60%;
 }
 
+// Estilos para el iframe
 iframe{
-	width: 120%;
+	width: 100%;
 }
+
+
+// Transicion de tamaño de las redes sociales
+.twitter{
+	-moz-transition: font-size 1s linear;
+		-webkit-transition: font-size 1s linear;
+		transition: font-size 1s linear;
+		&:hover{
+			font-size: 50px;
+		}
+}
+
+.facebook{
+	-moz-transition: font-size 1s linear;
+		-webkit-transition: font-size 1s linear;
+		transition: font-size 1s linear;
+		&:hover{
+			font-size: 50px;
+		}
+}
+
+.instagram{
+	-moz-transition: font-size 1s linear;
+		-webkit-transition: font-size 1s linear;
+		transition: font-size 1s linear;
+		&:hover{
+			font-size: 50px;
+		}
+}
+
+.logo{
+	-webkit-transition: 1s linear;
+	transition: 1s linear;
+	&:hover{
+		-webkit-transform: skew(10deg);
+		transform: skew(10deg);
+	  }
+  }
+
+
+  // Animación
+  .pdescuento {
+	animation-duration: 3s;
+	animation-name: slidein;
+  }
+  
+  @keyframes slidein {
+	from {
+	  margin-left: 100%;
+	  width: 300%
+	}
+  
+	to {
+	  margin-left: 0%;
+	  width: 100%;
+	}
+  }
+
+  .fotoClienteSatis{
+	  width: 100px;
+	  height: 100px;
+	  position: relative;
+		margin: 0 auto;
+  }
+
+  .menu2{
+	  background-color: black !important;
+	  top:0;
+  }
+
+  li{
+	  color: red;
+	  font-weight: bold;
+	  #text{
+		color: red;
+		font-weight: bold;
+	  }
+  }

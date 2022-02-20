@@ -13068,5 +13068,87 @@ section h2 {
 }
 
 iframe {
-  width: 120%;
+  width: 100%;
+}
+
+.twitter {
+  -webkit-transition: font-size 1s linear;
+  transition: font-size 1s linear;
+}
+.twitter:hover {
+  font-size: 50px;
+}
+
+.facebook {
+  -webkit-transition: font-size 1s linear;
+  transition: font-size 1s linear;
+}
+.facebook:hover {
+  font-size: 50px;
+}
+
+.instagram {
+  -webkit-transition: font-size 1s linear;
+  transition: font-size 1s linear;
+}
+.instagram:hover {
+  font-size: 50px;
+}
+
+.logo {
+  -webkit-transition: 1s linear;
+  transition: 1s linear;
+}
+.logo:hover {
+  -webkit-transform: skew(10deg);
+  transform: skew(10deg);
+}
+
+.pdescuento {
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-name: slidein;
+          animation-name: slidein;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+.fotoClienteSatis {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.menu2 {
+  background-color: black !important;
+  top: 0;
+}
+
+li {
+  color: red;
+  font-weight: bold;
+}
+li #text {
+  color: red;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
