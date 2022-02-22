@@ -47,4 +47,22 @@ class CocheRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @return Coche[]
+     */
+    public function cochesNoReservados(string $cadena): array
+    {
+        $entityManager = $this->getEntityManager();
+
+
+        $query = $entityManager->createQuery(
+            "SELECT c
+            FROM App\Entity\Coche c
+            WHERE c.id not in (".$cadena.")"
+        );
+        
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }

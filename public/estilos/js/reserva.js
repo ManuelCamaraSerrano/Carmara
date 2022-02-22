@@ -4,6 +4,8 @@ $(document).ready(function(){
     const urlParams = new URLSearchParams(window.location.search);
     const fechaini = urlParams.get('fechaini');
     const fechafin = urlParams.get('fechafin');
+    const fechainimodi = urlParams.get('fechaini').replaceAll("/","-");
+    const fechafinmodi = urlParams.get('fechafin').replaceAll("/","-");
     const ofireco = urlParams.get('ofirecogida');
     const ofidevo = urlParams.get('ofidevolucion');
     // Calculamos el número de días que hay entre las dos fechas
@@ -30,7 +32,7 @@ $(document).ready(function(){
             var realizaReserva = $("<div>").load("/estilos/js/plantillas/realizaReserva.html",
             function(){})
                 // Cargamos los coches
-                $.getJSON("/coches",{},
+                $.getJSON("/coches/"+fechainimodi+"/"+fechafinmodi,{},
                     function(data){
                         var modelo=cont.find("div[id^=coche]:first");
                         //creo las cajas
@@ -114,11 +116,15 @@ $(document).ready(function(){
         coche.find(".preciototal").text(dias*data.precio+"€");
         coche.find(".matricula").text(data.matricula);
         coche.find(".imagen").attr("src","/estilos/images/"+data.fotos[0].foto);
-        var datos = [data.id,fechaini,fechafin,ofireco,ofidevo,dias*data.precio];
-        json = JSON.stringify(datos);
+        var usuario = $(".usuario").attr("id");
         coche.find(".reservarya").click(function(ev){
             ev.preventDefault();
-            $.get("/realizareserva",json);
+            $.get("/insertaReserva/"+fechainimodi+"/"+fechafinmodi+"/"+ofireco+"/"+ofidevo+"/"+dias*data.precio+"/"+data.id+"/"+usuario,function( data ) {
+                if(data=="ok")
+                {
+                    window.location = "/";
+                }
+            })
         })
         
 
@@ -130,12 +136,12 @@ $(document).ready(function(){
     // Función que calcula cuantos días hay entre dos fechas
     function restaFechas(f1,f2)
     {
-    var aFecha1 = f1.split('/');
-    var aFecha2 = f2.split('/');
-    var fFecha1 = Date.UTC(aFecha1[0],aFecha1[1]-1,aFecha1[2]);
-    var fFecha2 = Date.UTC(aFecha2[0],aFecha2[1]-1,aFecha2[2]);
-    var dif = fFecha2 - fFecha1;
-    var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
-    return dias;
+        var aFecha1 = f1.split('/');
+        var aFecha2 = f2.split('/');
+        var fFecha1 = Date.UTC(aFecha1[0],aFecha1[1]-1,aFecha1[2]);
+        var fFecha2 = Date.UTC(aFecha2[0],aFecha2[1]-1,aFecha2[2]);
+        var dif = fFecha2 - fFecha1;
+        var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
+        return dias;
     }
 })
