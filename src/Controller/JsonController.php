@@ -20,6 +20,7 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Doctrine\ORM\EntityManagerInterface;
+use Dompdf\Dompdf;
 
 
 
@@ -146,10 +147,58 @@ class JsonController extends AbstractController
         $array = array($fechaini, $fechafin, $ofirecogida, $ofidevolucion,$precioTotal,$cochee,$usu);
         $reservarepo = new ReservaRepository($doctrine);
         $insert = $reservarepo->insertaReserva($array,$entityManager);
+
+        
         return new Response("ok");
 
     }
 
-   
+
+    /**
+     * @Route("/cochesFiltrados/{f1}/{f2}/{marca}/{precio}", name="cochesfiltrados")
+     */
+    public function cochesfiltrados(ManagerRegistry $doctrine,string $f1, string $f2, string $marca, string $precio): Response
+    {
+        $reservarepo = new ReservaRepository($doctrine);
+        $reservasOcupadas = $reservarepo->cochesPorfechas($f1,$f2);
+        $cocherepo = new CocheRepository($doctrine);
+        if(count($reservasOcupadas)==0)
+        {
+            $coches= $cocherepo->findAll();
+        }
+        else{
+            $datos="";
+        
+            for($i=0; $i<count($reservasOcupadas);$i++){
+                if($i==0)
+                {
+                    $datos = $datos.$reservasOcupadas[$i][1];
+                }
+                else{
+                    $datos = $datos.",".$reservasOcupadas[$i][1];
+                }
+                
+            }
+            $coches = $cocherepo->cochesFiltrados($datos,$marca,$precio);
+        }
+        
+        
+        $encoder = new JsonEncoder();
+        $defaultContext = [
+            AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object, $format, $context) {
+                return $object->getId();
+            },
+        ];
+        $normalizer = new ObjectNormalizer(null, null, null, null, null, null, $defaultContext);
+
+        $serializer = new Serializer([$normalizer], [$encoder]);
+        $jsonContent = $serializer->serialize($coches, 'json');
+        return new Response($jsonContent);
+
+        // or render a template
+        // in the template, print things with {{ product.name }}
+        // return $this->render('product/show.html.twig', ['product' => $product]);
+    }
+  
     
 }

@@ -10,8 +10,13 @@ $(document).ready(function(){
     const ofidevo = urlParams.get('ofidevolucion');
     // Calculamos el número de días que hay entre las dos fechas
     const dias = restaFechas(fechaini,fechafin);
+
+    // Cargamos el spinner al principio
+    $("nav").after($(' <div class="loadingio-spinner-spin-4evwpjxhs6k"><div class="ldio-8yyfftgu44h"><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div></div>'));
     
-    
+    // Creamos el dialog de confirmación
+    var modalconfirm = $("<div>").load("/estilos/js/plantillas/modalConfirm.html",
+            function(){})
 
     // Rellenamos el combo de marcas 
     $("nav").attr("id","navEspecial")
@@ -19,9 +24,10 @@ $(document).ready(function(){
             function(data){
                 $.each(data,function(ind,valor){
                     $("<option></option").text(valor.nombre)
-                    .appendTo("#marca");
+                    .appendTo("#marca").val(valor.id);
                 })
             });
+        
 
     // Cargamos la plantilla de mostrar un coche
     var cont = $("<div>").load("/estilos/js/plantillas/coche.html",
@@ -72,10 +78,126 @@ $(document).ready(function(){
                                     $(".contenedorModal").removeClass("active");
                                 })
                             })
-                            $("footer").before(coche);   
+                            $("footer").before(coche);  
                     })
+                    $(".loadingio-spinner-spin-4evwpjxhs6k").remove(); 
             })
     })
+
+
+    $("#marca").change(function(){
+        $("nav").after($(' <div class="loadingio-spinner-spin-4evwpjxhs6k"><div class="ldio-8yyfftgu44h"><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div></div>'));
+        $("div[id^=coche]").remove();
+        var cont = $("<div>").load("/estilos/js/plantillas/coche.html",
+            function(){
+                // Cargamos la plantilla de el modal
+                var detalle = $("<div>").load("/estilos/js/plantillas/detalles.html",
+            function(){})
+            var realizaReserva = $("<div>").load("/estilos/js/plantillas/realizaReserva.html",
+            function(){})
+        $.getJSON("/cochesFiltrados/"+fechainimodi+"/"+fechafinmodi+"/"+$("#marca").val()+"/"+$("#precio").val(),{},
+                function(data){
+                    var modelo=cont.find("div[id^=coche]:first");
+                    //creo las cajas
+                    $.each(data,function(ind,valor){
+                        var coche=modelo.clone(true);
+                        coche.attr("id","coche_"+data[ind].id);
+                        coche.find(".nombre").text(data[ind].marca.nombre+" "+data[ind].modelo);
+                        coche.find(".npuertas").text(data[ind].npuertas);
+                        coche.find(".cv").text(data[ind].cv);
+                        coche.find(".cambio").text(data[ind].cambio);
+                        coche.find(".color").text(data[ind].color);
+                        coche.find(".precio").text(data[ind].precio+"€");
+                        coche.find(".img").attr("src","/estilos/images/"+data[ind].fotos[0].foto);
+                        // Cargamos los modales de detalles y de realizar la reserva
+                        var cochedetalle = muestraDetalles(detalle,data[ind]);
+                        var reserva = contenidoReserva(realizaReserva,data[ind]);
+                        // Cuando pulse el enlace aparecerá el modal
+                        coche.find(".detalle").click(function(ev){
+                            ev.preventDefault();
+                            $(".contenedorModal").addClass("active");
+                            $(cochedetalle).dialog({
+                                width: 1050,  // Tamaño del dialog
+                                height:500
+                            });
+                            $(".ui-button").click(function(){
+                                $(".contenedorModal").removeClass("active");
+                            })
+                        })
+                        coche.find(".reserva").click(function(ev){
+                            ev.preventDefault();
+                            $(".contenedorModal").addClass("active");
+                            $(reserva).dialog({
+                                width: 1100,  // Tamaño del dialog
+                                height:500
+                            });
+                            $(".ui-button").click(function(){
+                                $(".contenedorModal").removeClass("active");
+                            })
+                        })
+                        $("footer").before(coche);  
+                })
+                $(".loadingio-spinner-spin-4evwpjxhs6k").remove(); 
+        })
+    })
+})
+
+$("#precio").change(function(){
+    $("nav").after($(' <div class="loadingio-spinner-spin-4evwpjxhs6k"><div class="ldio-8yyfftgu44h"><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div></div>'));
+    $("div[id^=coche]").remove();
+    var cont = $("<div>").load("/estilos/js/plantillas/coche.html",
+        function(){
+            // Cargamos la plantilla de el modal
+            var detalle = $("<div>").load("/estilos/js/plantillas/detalles.html",
+        function(){})
+        var realizaReserva = $("<div>").load("/estilos/js/plantillas/realizaReserva.html",
+        function(){})
+    $.getJSON("/cochesFiltrados/"+fechainimodi+"/"+fechafinmodi+"/"+$("#marca").val()+"/"+$("#precio").val(),{},
+            function(data){
+                var modelo=cont.find("div[id^=coche]:first");
+                //creo las cajas
+                $.each(data,function(ind,valor){
+                    var coche=modelo.clone(true);
+                    coche.attr("id","coche_"+data[ind].id);
+                    coche.find(".nombre").text(data[ind].marca.nombre+" "+data[ind].modelo);
+                    coche.find(".npuertas").text(data[ind].npuertas);
+                    coche.find(".cv").text(data[ind].cv);
+                    coche.find(".cambio").text(data[ind].cambio);
+                    coche.find(".color").text(data[ind].color);
+                    coche.find(".precio").text(data[ind].precio+"€");
+                    coche.find(".img").attr("src","/estilos/images/"+data[ind].fotos[0].foto);
+                    // Cargamos los modales de detalles y de realizar la reserva
+                    var cochedetalle = muestraDetalles(detalle,data[ind]);
+                    var reserva = contenidoReserva(realizaReserva,data[ind]);
+                    // Cuando pulse el enlace aparecerá el modal
+                    coche.find(".detalle").click(function(ev){
+                        ev.preventDefault();
+                        $(".contenedorModal").addClass("active");
+                        $(cochedetalle).dialog({
+                            width: 1050,  // Tamaño del dialog
+                            height:500
+                        });
+                        $(".ui-button").click(function(){
+                            $(".contenedorModal").removeClass("active");
+                        })
+                    })
+                    coche.find(".reserva").click(function(ev){
+                        ev.preventDefault();
+                        $(".contenedorModal").addClass("active");
+                        $(reserva).dialog({
+                            width: 1100,  // Tamaño del dialog
+                            height:500
+                        });
+                        $(".ui-button").click(function(){
+                            $(".contenedorModal").removeClass("active");
+                        })
+                    })
+                    $("footer").before(coche);  
+            })
+            $(".loadingio-spinner-spin-4evwpjxhs6k").remove(); 
+    })
+})
+})
 
 
     // Función que añade el contenido al modal
@@ -119,12 +241,28 @@ $(document).ready(function(){
         var usuario = $(".usuario").attr("id");
         coche.find(".reservarya").click(function(ev){
             ev.preventDefault();
-            $.get("/insertaReserva/"+fechainimodi+"/"+fechafinmodi+"/"+ofireco+"/"+ofidevo+"/"+dias*data.precio+"/"+data.id+"/"+usuario,function( data ) {
-                if(data=="ok")
-                {
-                    window.location = "/";
+            $(modalconfirm).dialog({
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                  Cancelar: function() {
+                    $( this ).dialog( "close" );
+                    
+                  },
+                  "Confirmar": function() {
+                    
+                    $.get("/insertaReserva/"+fechainimodi+"/"+fechafinmodi+"/"+ofireco+"/"+ofidevo+"/"+dias*data.precio+"/"+data.id+"/"+usuario,function( data ) {
+                        if(data=="ok")
+                        {
+                            window.location = "/";
+                        }
+                    })
+                  },
                 }
-            })
+              });
+            
         })
         
 

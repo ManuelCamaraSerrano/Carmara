@@ -2455,7 +2455,7 @@ section h2{
 
 // Estilos para los filtros del listado de coches
 .filtros{
-	margin-top: 10%;
+	margin-top: 8%;
 	margin-bottom: 5%;
 	select{
 		border: solid black 3px;
@@ -2495,6 +2495,10 @@ section h2{
 	  opacity: 0.5;
 	  z-index: 1500;
 	  }
+	  &.superactive {
+		opacity: 0.5;
+		z-index: 2002;
+		}
 }
 
 .alquiler{
@@ -2601,3 +2605,29 @@ iframe{
 		font-weight: bold;
 	  }
   }
+
+#dialog-confirm{
+	p{
+		color: #015b98;
+	}
+}
+
+.ui-dialog-buttonset button:first-child{
+	background-color: red;
+	color: white;
+	margin-right: 10% ;
+}
+
+.ui-dialog-buttonset button:last-child{
+	background-color: green;
+	color: white;
+}
+
+#modalconfirm{
+	z-index: 2040;
+}
+
+
+
+
+

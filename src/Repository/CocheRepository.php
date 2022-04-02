@@ -65,4 +65,59 @@ class CocheRepository extends ServiceEntityRepository
         // returns an array of Product objects
         return $query->getResult();
     }
+
+    /**
+     * @return Coche[]
+     */
+    public function cochesFiltrados(string $cadena, string $marca, string $precio): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        if($marca=="vacio" && $precio=="50-100")
+        {
+            $query = $entityManager->createQuery(
+                "SELECT c
+                FROM App\Entity\Coche c
+                WHERE c.id not in (".$cadena.") and c.precio<100"
+            );
+        }
+        if($marca=="vacio" && $precio=="100-150"){
+            $query = $entityManager->createQuery(
+                "SELECT c
+                FROM App\Entity\Coche c
+                WHERE c.id not in (".$cadena.") and (c.precio>100 and c.precio<150)"
+            );
+        }
+        if($marca=="vacio" && $precio=="150-200"){
+            $query = $entityManager->createQuery(
+                "SELECT c
+                FROM App\Entity\Coche c
+                WHERE c.id not in (".$cadena.") and (c.precio>150 and c.precio<200)"
+            );
+        }
+        if($marca!="vacio" && $precio=="50-100"){
+            $query = $entityManager->createQuery(
+                "SELECT c
+                FROM App\Entity\Coche c
+                WHERE c.id not in (".$cadena.") and c.precio<100 and c.marca=".$marca
+            );
+        }
+        if($marca!="vacio" && $precio=="100-150"){
+            $query = $entityManager->createQuery(
+                "SELECT c
+                FROM App\Entity\Coche c
+                WHERE c.id not in (".$cadena.") and (c.precio>100 and c.precio<150) and c.marca=".$marca
+            );
+        }
+        if($marca!="vacio" && $precio=="100-150"){
+            $query = $entityManager->createQuery(
+                "SELECT c
+                FROM App\Entity\Coche c
+                WHERE c.id not in (".$cadena.") and (c.precio>150 and c.precio<200) and c.marca=".$marca
+            );
+        }
+        
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }

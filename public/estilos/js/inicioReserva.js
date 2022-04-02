@@ -5,6 +5,24 @@ $(document).ready(function(){
     var fechaini = $("#fecharecogida");
     var fechafin = $("#fechadevolucion");
 
+    fechaini.on("drop", function(event) {
+      event.preventDefault();  
+      event.stopPropagation();
+    });
+
+   fechafin.on("drop", function(event) {
+    event.preventDefault();  
+    event.stopPropagation();
+  });
+
+
+fechaini.on("paste",function(ev){
+  ev.preventDefault();
+})
+
+fechafin.on("paste",function(ev){
+  ev.preventDefault();
+})
     
     $( function() {
         
@@ -59,6 +77,42 @@ $(document).ready(function(){
         });
     btnReservar.click(function(ev){
         ev.preventDefault();
-        window.location = "/reserva?ofirecogida="+ofirecogida.val()+"&ofidevolucion="+ofidevolucion.val()+"&fechaini="+fechaini.val()+"&fechafin="+fechafin.val();
+        var errores="";
+        if(ofirecogida.val()=="vacio")
+        {
+          $("#spanofireco").text("El campo oficina de recogida no puede estar vacio");
+          errores="error";
+        }
+        else{
+          $("#spanofireco").text("");
+        }
+        if(ofidevolucion.val()=="vacio")
+        {
+          $("#spanofidevo").text("El campo oficina de devolución no puede estar vacio");
+          errores="error";
+        }
+        else{
+          $("#spanofidevo").text("");
+        }
+        if(fechaini.val()=="")
+        {
+          $("#spanfechareco").text("El campo fecha recogida no puede estar vacio");
+          errores="error";
+        }
+        else{
+          $("#spanfechareco").text("");
+        }
+        if(fechafin.val()=="")
+        {
+          $("#spanfechadevo").text("El campo fecha devolucion no puede estar vacio");
+          errores="error";
+        }
+        else{
+          $("#spanfechadevo").text("");
+        }
+        if(errores=="")
+        {
+          window.location = "/reserva?ofirecogida="+ofirecogida.val()+"&ofidevolucion="+ofidevolucion.val()+"&fechaini="+fechaini.val()+"&fechafin="+fechafin.val();
+        }
       });
 })
